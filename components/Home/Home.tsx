@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Dimensions } from "react-native";
 // components
 import HomePresentation from "./HomePresentation";
 // utils
@@ -12,9 +11,6 @@ const Home = () => {
   const { data, error, isLoading } = useGetAllGroupsQuery("");
   error && console.log(error);
 
-  // get screenHeight
-  const screenHeight = Dimensions.get("window").height;
-
   // state for showing modal
   const [groupOpen, setGroupOpen] = useState<Igroup | null>(null);
 
@@ -23,7 +19,6 @@ const Home = () => {
     setGroupOpen,
     data,
     isLoading,
-    screenHeight,
   };
 
   return <HomePresentation {...presentationProps} />;

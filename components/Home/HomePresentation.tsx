@@ -11,7 +11,6 @@ interface Iprops {
   setGroupOpen: Dispatch<SetStateAction<Igroup | null>>;
   data: any;
   isLoading: boolean;
-  screenHeight: number;
 }
 
 const HomePresentation: FC<Iprops> = ({
@@ -19,7 +18,6 @@ const HomePresentation: FC<Iprops> = ({
   setGroupOpen,
   data,
   isLoading,
-  screenHeight,
 }) => {
   return (
     <View style={[tw`flex-1`]}>

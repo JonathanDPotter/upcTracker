@@ -88,6 +88,7 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
       console.log(error);
     }
     refetch();
+    close();
   };
 
   const deleteGroup = async () => {

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { FlatList, Modal, ScrollView, TextInput, View } from "react-native";
+import { FlatList, Modal, TextInput, View } from "react-native";
 import tw from "twrnc";
 // components
 import LabelInput from "../shared/LabelInput";
