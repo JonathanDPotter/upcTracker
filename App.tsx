@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from "react";
+import { Provider } from "react-redux";
+import { debounce } from "debounce";
+// utils
+import { saveState } from "./store/localStorage";
+// redux store
+import { store } from "./store";
+// components
+import Main from "./components/Main/Main";
+import { Platform } from "react-native";
 
-export default function App() {
+const App = () => {
+  useEffect(() => {
+    // saves redux state to localStorage
+    Platform.OS === "web" &&
+      store.subscribe(
+        debounce(() => {
+          saveState(store.getState());
+        }, 800)
+      );
+  }, [store]);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider {...{ store }}>
+      <Main />
+    </Provider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
