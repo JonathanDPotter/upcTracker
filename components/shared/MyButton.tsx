@@ -13,7 +13,11 @@ interface Iprops {
 const MyButton: FC<Iprops> = ({ title, style, textStyle, onPress }) => {
   return (
     <Pressable
-      style={[tw`bg-blue-300 px-4 py-2 m-2 rounded items-center`, style]}
+      style={({ pressed }) => [
+        tw`px-4 py-2 m-2 rounded items-center`,
+        pressed ? tw`bg-blue-200` : tw`bg-blue-300`,
+        style,
+      ]}
       onPress={onPress}
     >
       <MyText style={[tw`text-lg`, textStyle]}>{title}</MyText>

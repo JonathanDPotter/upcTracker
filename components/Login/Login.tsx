@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { setToken, setUser } from "../../store/slices/authSlice";
 import api from "../../api";
 import LoginPresentation from "./LoginPresentation";
-import { Alert, Dimensions } from "react-native";
+import { Alert, Dimensions, Platform } from "react-native";
 
 const Login = () => {
   const dispatch = useAppDispatch();
@@ -54,10 +54,12 @@ const Login = () => {
         dispatch(setUser(username));
       } else {
         Alert.alert(response.data.message);
+        Platform.OS === "web" && window.alert(response.data.message);
         setFormState(initialState);
       }
     } catch (error: any) {
       Alert.alert(error.message);
+      Platform.OS === "web" && window.alert(error.message);
     }
   };
 

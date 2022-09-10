@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 // utils
 import api from "../../api";
 import IchangeEvent from "../../interfaces/changeEvent";
@@ -68,6 +68,7 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
     } catch (error: any) {
       console.log(error);
       Alert.alert(error.message);
+      Platform.OS === "web" && window.alert(error.message);
     }
     refetch();
     close();
