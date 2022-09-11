@@ -49,7 +49,9 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
         return;
       }
     }
-    setFormState({ ...formState, [id]: value });
+    setFormState((prev) => {
+      return { ...prev, [id]: value };
+    });
   };
 
   const handleSubmit = async (submitter: submitterType) => {
@@ -88,7 +90,9 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
       console.log(error);
     }
     refetch();
-    close();
+    setFormState((prev) => {
+      return { ...prev, upcs: "" };
+    });
   };
 
   const deleteGroup = async () => {
