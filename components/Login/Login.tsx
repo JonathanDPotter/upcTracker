@@ -49,12 +49,12 @@ const Login = () => {
       if (newUser) await api.register({ username, password });
       const response = await api.login({ username, password });
 
-      if (response.data.token) {
-        dispatch(setToken(response.data.token));
+      if (response?.data.token) {
+        dispatch(setToken(response?.data.token));
         dispatch(setUser(username));
       } else {
-        Alert.alert(response.data.message);
-        Platform.OS === "web" && window.alert(response.data.message);
+        Alert.alert(response?.data.message);
+        Platform.OS === "web" && window.alert(response?.data.message);
         setFormState(initialState);
       }
     } catch (error: any) {

@@ -13,6 +13,8 @@ interface Iprops {
   screenHeight: number;
 }
 
+// TODO: add apk download to web version
+
 const HeaderPres: FC<Iprops> = ({
   logOut,
   user,

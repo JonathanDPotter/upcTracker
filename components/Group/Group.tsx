@@ -58,8 +58,6 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
     // converts the string from the upcs textarea to an array of numbers to send to the api
     const upcsToNumberArray: number[] = [];
 
-    console.log(`upcs: ${upcs}`);
-
     upcs
       .trim()
       .split("\n")
@@ -124,13 +122,18 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
   };
 
   const copyToClipboard = async () => {
-    let savedToString: string[] = [];
-    savedUpcs.forEach((upc) => {
-      savedToString.push(upc.toString());
-    });
-
-    await Clipboard.setString(savedToString.join(" \n"));
+    try {
+      let savedToString: string[] = [];
+      savedUpcs.forEach((upc) => {
+        savedToString.push(upc.toString());
+      });
+      Clipboard.setString(savedToString.join(" \n"));
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // TODO: add camera capture functionality for android version
 
   const props = {
     title,

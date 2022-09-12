@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "upcTracker",
-    "slug": "upcTracker",
+    "owner": "jonathandpotter",
+    "slug": "upc-tracker",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/splash.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.jonathandpotter.upctracker"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d5f09f08-2f09-4d8c-80c3-d8c64d858e67"
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { FlatList, Modal, TextInput, View } from "react-native";
+import { FlatList, Modal, Platform, TextInput, View } from "react-native";
 import tw from "twrnc";
 // components
 import LabelInput from "../shared/LabelInput";
@@ -107,13 +107,16 @@ const GroupPresentation: FC<Iprops> = ({
           </View>
           {/* ↓↓ bottom buttons ↓↓ */}
           <View
-            style={tw`h-[10%] w-[100%] flex-row content-around items-center`}
+            style={tw`h-[10%] w-[100%] flex-row justify-around items-center`}
           >
-            <MyButton
-              title="Copy"
-              style={tw`w-[30%]`}
-              onPress={copyToClipboard}
-            />
+            {Platform.OS === "web" && (
+              <MyButton
+                title="Copy"
+                style={tw`w-[30%]`}
+                onPress={copyToClipboard}
+              />
+            )}
+
             <MyButton title="Cancel" style={tw`w-[30%]`} onPress={close} />
             <MyButton
               title="Delete"
