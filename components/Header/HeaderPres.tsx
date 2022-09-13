@@ -1,4 +1,4 @@
-import { View, Image, Platform } from "react-native";
+import { View, Image, Platform, Linking } from "react-native";
 import React, { FC } from "react";
 import tw from "twrnc";
 // components
@@ -12,8 +12,6 @@ interface Iprops {
   setCreateOpen: React.Dispatch<React.SetStateAction<boolean>>;
   screenHeight: number;
 }
-
-// TODO: add apk download to web version
 
 const HeaderPres: FC<Iprops> = ({
   logOut,
@@ -47,6 +45,16 @@ const HeaderPres: FC<Iprops> = ({
         />
       )}
       {user && <MyButton onPress={logOut} title="Log Out" />}
+      {Platform.OS === "web" && user && (
+        <MyButton
+          onPress={() => {
+            Linking.openURL(
+              "https://drive.google.com/uc?export=download&id=1W3OJ3BTU2PwaRoX13E5zNkZX97Q-h6IO"
+            );
+          }}
+          title="Get APK"
+        />
+      )}
       {createOpen && <CreateGroup close={() => setCreateOpen(false)} />}
     </View>
   );
