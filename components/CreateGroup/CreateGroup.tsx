@@ -24,6 +24,8 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
   // local state for form
   const initialState: IformState = { title: "", upcs: "" };
 
+  const [scannerOpen, setScannerOpen] = useState(false);
+
   const [formState, setFormState] = useState(initialState);
   const { title, upcs } = formState;
 
@@ -63,7 +65,6 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
           title,
           upcs: noDupes,
         });
-        console.log(response.data);
       }
     } catch (error: any) {
       console.log(error);
@@ -74,7 +75,15 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
     close();
   };
 
-  const presentationProps = { handleSubmit, handleChange, title, upcs, close };
+  const presentationProps = {
+    handleSubmit,
+    handleChange,
+    title,
+    upcs,
+    close,
+    scannerOpen,
+    setScannerOpen
+  };
 
   return <CreateGroupPresentation {...presentationProps} />;
 };

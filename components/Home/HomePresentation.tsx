@@ -1,7 +1,9 @@
 import { FlatList, View } from "react-native";
 import React, { Dispatch, FC, SetStateAction } from "react";
-import { Igroup } from "../../interfaces/group";
 import tw from "twrnc";
+// interfaces
+import { Igroup } from "../../interfaces/group";
+// components
 import MyText from "../shared/MyText";
 import MyButton from "../shared/MyButton";
 import Group from "../Group/Group";

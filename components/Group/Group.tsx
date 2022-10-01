@@ -32,7 +32,7 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
     title: savedTitle,
     upcs: "",
   };
-
+  const [scannerOpen, setScannerOpen] = useState(false);
   const [formState, setFormState] = useState(initialState);
   const { title, upcs } = formState;
 
@@ -144,6 +144,8 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
     copyToClipboard,
     close,
     deleteGroup,
+    scannerOpen,
+    setScannerOpen,
   };
 
   return <GroupPresentation {...props} />;

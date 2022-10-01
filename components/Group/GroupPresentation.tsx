@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import { FlatList, Modal, Platform, TextInput, View } from "react-native";
 import tw from "twrnc";
 // components
@@ -16,6 +16,7 @@ import {
   inputStyle,
   modalStyle,
 } from "../../sharedStyles";
+import Scanner from "../Scanner/Scanner";
 
 interface Iprops {
   title: string;
@@ -26,6 +27,8 @@ interface Iprops {
   copyToClipboard: () => Promise<void>;
   close: () => void;
   deleteGroup: () => void;
+  scannerOpen: boolean;
+  setScannerOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const GroupPresentation: FC<Iprops> = ({
@@ -37,6 +40,8 @@ const GroupPresentation: FC<Iprops> = ({
   copyToClipboard,
   close,
   deleteGroup,
+  scannerOpen,
+  setScannerOpen,
 }) => {
   return (
     <Modal animationType="slide" transparent visible onRequestClose={close}>
@@ -109,11 +114,17 @@ const GroupPresentation: FC<Iprops> = ({
           <View
             style={tw`h-[10%] w-[100%] flex-row justify-around items-center`}
           >
-            {Platform.OS === "web" && (
+            {Platform.OS === "web" ? (
               <MyButton
                 title="Copy"
                 style={tw`w-[30%]`}
                 onPress={copyToClipboard}
+              />
+            ) : (
+              <MyButton
+                title="Scan"
+                style={tw`w-[30%]`}
+                onPress={() => setScannerOpen((prev) => !prev)}
               />
             )}
 
@@ -126,6 +137,15 @@ const GroupPresentation: FC<Iprops> = ({
           </View>
         </View>
       </View>
+      {scannerOpen ? (
+        <Scanner
+          setScannerOpen={setScannerOpen}
+          setUpcs={handleChange}
+          upcs={upcs}
+        />
+      ) : (
+        <></>
+      )}
     </Modal>
   );
 };

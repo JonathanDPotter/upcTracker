@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Modal, TextInput, View } from "react-native";
+import React, { Dispatch, FC, SetStateAction } from "react";
+import { Modal, Platform, TextInput, View } from "react-native";
 import tw from "twrnc";
 // components
 import MyText from "../shared/MyText";
@@ -15,6 +15,7 @@ import {
   inputStyle,
   modalStyle,
 } from "../../sharedStyles";
+import Scanner from "../Scanner/Scanner";
 
 interface Iprops {
   handleSubmit: () => Promise<void>;
@@ -22,6 +23,8 @@ interface Iprops {
   title: string;
   upcs: string;
   close: () => void;
+  scannerOpen: boolean;
+  setScannerOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const CreateGroupPresentation: FC<Iprops> = ({
@@ -30,6 +33,8 @@ const CreateGroupPresentation: FC<Iprops> = ({
   title,
   upcs,
   close,
+  scannerOpen,
+  setScannerOpen,
 }) => {
   return (
     <Modal animationType="slide" transparent visible onRequestClose={close}>
@@ -69,8 +74,18 @@ const CreateGroupPresentation: FC<Iprops> = ({
                 textAlignVertical="top"
               />
             </LabelInput>
+
             <MyButton title="save" style={tw`w-[30%]`} onPress={handleSubmit} />
           </View>
+          {Platform.OS === "android" ? (
+            <MyButton
+              title="Scan"
+              style={tw`w-[30%] mx-auto m-top-[2rem]`}
+              onPress={() => setScannerOpen(true)}
+            />
+          ) : (
+            <></>
+          )}
           <MyButton
             title="Cancel"
             style={tw`w-[30%] mx-auto m-top-[2rem]`}
@@ -78,6 +93,15 @@ const CreateGroupPresentation: FC<Iprops> = ({
           />
         </View>
       </View>
+      {scannerOpen ? (
+        <Scanner
+          setScannerOpen={setScannerOpen}
+          setUpcs={handleChange}
+          upcs={upcs}
+        />
+      ) : (
+        <></>
+      )}
     </Modal>
   );
 };
