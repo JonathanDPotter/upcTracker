@@ -5,14 +5,17 @@ import React, {
   SetStateAction,
   FC,
 } from "react";
-import { StyleSheet, Modal } from "react-native";
+import { StyleSheet, Modal, View } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import tw from "twrnc";
+// components
 import MyText from "../shared/MyText";
 import MyButton from "../shared/MyButton";
+// interfaces
 import IchangeEvent from "../../interfaces/changeEvent";
 
 interface Iprops {
-  upcs: string
+  upcs: string;
   setUpcs: (event: IchangeEvent) => void;
   setScannerOpen: Dispatch<SetStateAction<boolean>>;
 }
@@ -40,7 +43,7 @@ const Scanner: FC<Iprops> = ({ setScannerOpen, setUpcs, upcs }) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     setUpcs({
-      currentTarget: { id: "upcs", value: upcs + `\n`+ data + `\n` },
+      currentTarget: { id: "upcs", value: upcs + `\n` + data + `\n` },
     });
   };
 
@@ -52,7 +55,7 @@ const Scanner: FC<Iprops> = ({ setScannerOpen, setUpcs, upcs }) => {
   }
 
   return (
-    <Modal>
+    <Modal style={tw`relative`}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
@@ -60,10 +63,15 @@ const Scanner: FC<Iprops> = ({ setScannerOpen, setUpcs, upcs }) => {
       {scanned && (
         <MyButton
           title={"Tap to Scan Again"}
+          style={tw`absolute top-[1.5rem] w-[96%]`}
           onPress={() => setScanned(false)}
         />
       )}
-      <MyButton title="done" onPress={() => setScannerOpen(false)} />
+      <MyButton
+        title="Done Scanning"
+        onPress={() => setScannerOpen(false)}
+        style={tw`absolute bottom-[1.5rem] w-[96%]`}
+      />
     </Modal>
   );
 };
