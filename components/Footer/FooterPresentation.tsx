@@ -1,5 +1,5 @@
 import React, { Dispatch, FC } from "react";
-import { View } from "react-native";
+import { Linking, Pressable, View } from "react-native";
 import tw from "twrnc";
 import About from "../About/About";
 import MyButton from "../shared/MyButton";

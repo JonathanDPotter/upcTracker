@@ -35,9 +35,17 @@ const About: FC<Iprops> = ({ close }) => {
               }
             >
               here
-            </MyText>{" "}
-            .
+            </MyText>
+            .{`\n`}
           </MyText>
+          <MyButton
+            title="view privacy policy"
+            onPress={() =>
+              Linking.openURL(
+                "https://www.freeprivacypolicy.com/live/a92f926d-be2a-4b5a-b5ac-68db653294d2"
+              )
+            }
+          />
           <MyButton style={tw`m-top-[3rem]`} title="close" onPress={close} />
         </View>
       </View>
