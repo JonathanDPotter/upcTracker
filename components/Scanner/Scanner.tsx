@@ -43,7 +43,7 @@ const Scanner: FC<Iprops> = ({ setScannerOpen, setUpcs, upcs }) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     setUpcs({
-      currentTarget: { id: "upcs", value: upcs + `\n` + data + `\n` },
+      currentTarget: { id: "upcs", value: upcs + `\n` + data },
     });
   };
 

@@ -56,8 +56,10 @@ const GroupPresentation: FC<Iprops> = ({
               <MyText style={tw`text-lg`}>Saved UPCs</MyText>
               <FlatList
                 data={savedUpcs}
-                keyExtractor={(item) => item.toString()}
-                renderItem={({ item }) => <MyText>{item}</MyText>}
+                keyExtractor={(item) => item?.toString()}
+                renderItem={({ item }) =>
+                  item ? <MyText>{item}</MyText> : null
+                }
               />
             </View>
             {/* ↓↓ left side View ↓↓ */}
