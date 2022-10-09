@@ -77,8 +77,14 @@ const GroupPresentation: FC<Iprops> = ({
                     value={title}
                     placeholder="Enter Title"
                   />
+                  <MyButton
+                    title="save"
+                    style={tw`h-[2rem] justify-center px-2`}
+                    textStyle={tw`text-4`}
+                    onPress={() => handleSubmit(submitterType.add)}
+                  />
                 </LabelInput>
-                <LabelInput>
+                <LabelInput style={tw`items-start`}>
                   <MyText>UPCs</MyText>
                   <TextInput
                     style={tw`${inputStyle}`}

@@ -11,7 +11,7 @@ const LabelInput: FC<Iprops> = ({ children, style }) => {
   return (
     <View
       style={[
-        tw`w-[90%] flex-row justify-between items-start mx-auto my-[1rem]`,
+        tw`w-[90%] flex-row justify-between items-center mx-auto my-[1rem]`,
         style,
       ]}
     >

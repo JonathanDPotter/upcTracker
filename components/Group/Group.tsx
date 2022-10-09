@@ -73,7 +73,7 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
       });
     }
     // removes duplicate upcs
-    const noDupes = [...new Set(newArray)];
+    const noDupes = [...new Set(newArray)].filter((entry) => entry !== null);
 
     // send to api
     try {
@@ -132,8 +132,6 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
       console.log(error);
     }
   };
-
-  // TODO: add camera capture functionality for android version
 
   const props = {
     title,

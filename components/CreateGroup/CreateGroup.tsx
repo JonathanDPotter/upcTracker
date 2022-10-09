@@ -56,7 +56,9 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
       .forEach((upc) => upcsToNumberArray.push(parseInt(upc, 10)));
 
     // eliminates duplicate UPCs
-    const noDupes = [...new Set(upcsToNumberArray)];
+    const noDupes = [...new Set(upcsToNumberArray)].filter(
+      (entry) => entry !== null
+    );
 
     // send to api
     try {
@@ -82,7 +84,7 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
     upcs,
     close,
     scannerOpen,
-    setScannerOpen
+    setScannerOpen,
   };
 
   return <CreateGroupPresentation {...presentationProps} />;
