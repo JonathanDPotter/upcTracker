@@ -38,14 +38,14 @@ const HeaderPres: FC<Iprops> = ({
         style={tw`h-[2rem] w-[2rem]`}
         source={require("../../assets/icon.png")}
       />
-      {user && (
+      {user ? (
         <MyButton
           onPress={() => setCreateOpen(true)}
           title="Create New Group"
         />
-      )}
-      {user && <MyButton onPress={logOut} title="Log Out" />}
-      {Platform.OS === "web" && user && (
+      ) : null}
+      {user ? <MyButton onPress={logOut} title="Log Out" /> : null}
+      {Platform.OS === "web" && user ? (
         <MyButton
           onPress={() => {
             Linking.openURL(
@@ -54,8 +54,8 @@ const HeaderPres: FC<Iprops> = ({
           }}
           title="Get APK"
         />
-      )}
-      {createOpen && <CreateGroup close={() => setCreateOpen(false)} />}
+      ) : null}
+      {createOpen ? <CreateGroup close={() => setCreateOpen(false)} /> : null}
     </View>
   );
 };

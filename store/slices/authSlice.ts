@@ -3,9 +3,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface IauthSliceState {
   token: string | null;
   user: string | null;
+  id: string | null;
 }
 
-const initialState = { token: null, user: null } as IauthSliceState;
+const initialState = { token: null, user: null, id: null } as IauthSliceState;
 
 const authSlice = createSlice({
   name: "auth",
@@ -17,13 +18,15 @@ const authSlice = createSlice({
     setUser: (state: IauthSliceState, action: PayloadAction<string>) => {
       state.user = action.payload;
     },
+    setId: (state: IauthSliceState, action: PayloadAction<string>) => {
+      state.id = action.payload;
+    },
     logOut: (state: IauthSliceState) => {
-      state.user = null;
-      state.token = null;
+      state = initialState;
     },
   },
 });
 
-export const { setToken, setUser, logOut } = authSlice.actions;
+export const { setToken, setUser, setId, logOut } = authSlice.actions;
 
 export default authSlice.reducer;

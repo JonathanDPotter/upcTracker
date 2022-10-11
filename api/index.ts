@@ -2,12 +2,14 @@ import axios from "axios";
 // interfaces
 import { IgroupUpload } from "../interfaces/group";
 import { InewUser } from "../interfaces/user";
+// config
+import config from "../config";
 
-const baseUrl = "https://upc-tracker.herokuapp.com";
+const axiosInstance = axios.create({ baseURL: config.baseURL });
 
-const getAllGroups = async () => {
+const getAllGroups = async (user: string) => {
   try {
-    const response = await axios.get(baseUrl + "/api/group/");
+    const response = await axiosInstance.get(`/api/group/${user}`);
     return response;
   } catch (error) {
     console.log(error);
@@ -16,9 +18,11 @@ const getAllGroups = async () => {
 
 const createGroup = async (token: string, group: IgroupUpload) => {
   try {
-    const response = await axios.post(`${baseUrl}/api/group/`, group, {
+    console.log(group);
+    const response = await axiosInstance.post(`/api/group/`, group, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    console.log(response)
     return response;
   } catch (error) {
     console.log(error);
@@ -26,7 +30,7 @@ const createGroup = async (token: string, group: IgroupUpload) => {
 };
 
 const updateGroup = async (_id: string, token: string, group: IgroupUpload) => {
-  const response = await axios.put(`${baseUrl}/api/group/${_id}`, group, {
+  const response = await axiosInstance.put(`/api/group/${_id}`, group, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return response;
@@ -34,7 +38,7 @@ const updateGroup = async (_id: string, token: string, group: IgroupUpload) => {
 
 const deleteGroup = async (_id: string, token: string) => {
   try {
-    const response = await axios.delete(`${baseUrl}/api/group/${_id}`, {
+    const response = await axiosInstance.delete(`/api/group/${_id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response;
@@ -45,7 +49,7 @@ const deleteGroup = async (_id: string, token: string) => {
 
 const validate = async (token: string | null) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/user/validate`, {
+    const response = await axiosInstance.get(`/api/user/validate`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response;
@@ -56,7 +60,7 @@ const validate = async (token: string | null) => {
 
 const register = async (user: InewUser) => {
   try {
-    const response = await axios.post(`${baseUrl}/api/user/register`, user);
+    const response = await axiosInstance.post(`/api/user/register`, user);
   } catch (error) {
     console.log(error);
   }
@@ -64,7 +68,7 @@ const register = async (user: InewUser) => {
 
 const login = async (user: InewUser) => {
   try {
-    const response = await axios.post(`${baseUrl}/api/user/login`, user);
+    const response = await axiosInstance.post(`/api/user/login`, user);
     return response;
   } catch (error) {
     console.log(error);

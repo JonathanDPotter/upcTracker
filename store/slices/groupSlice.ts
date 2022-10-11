@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import config from "../../config";
 
 export const groupApi = createApi({
   reducerPath: "groupApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://upc-tracker.herokuapp.com",
+    baseUrl: config.baseURL,
   }),
   endpoints: (builder) => ({
-    getAllGroups: builder.query({ query: () => "/api/group/" }),
+    getAllGroups: builder.query({ query: () => "api/group/" }),
   }),
 });
 

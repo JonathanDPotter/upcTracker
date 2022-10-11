@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // utils
 import { useAppDispatch } from "../../store/hooks";
-import { setToken, setUser } from "../../store/slices/authSlice";
+import { setId, setToken, setUser } from "../../store/slices/authSlice";
 import api from "../../api";
 import LoginPresentation from "./LoginPresentation";
 import { Alert, Dimensions, Platform } from "react-native";
@@ -52,6 +52,7 @@ const Login = () => {
       if (response?.data.token) {
         dispatch(setToken(response?.data.token));
         dispatch(setUser(username));
+        dispatch(setId(response?.data._id));
       } else {
         Alert.alert(response?.data.message);
         Platform.OS === "web" && window.alert(response?.data.message);
