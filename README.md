@@ -1,6 +1,6 @@
 # UPC Tracker
 
-This is the front end for my UPC tracking web app. It will call the API on my back end to store UPCs in a Mongo Atlas database. I will use this to track which UPCs I have already reported, to where I reported them, and the status of the reported UPCs. The back-end repo is [here](https://github.com/JonathanDPotter/upc-tracker), and this web app is hosted on Vercel [here](https://upc-tracker-efxn5f8q7-jonathandpotter.vercel.app/). The android app is available on the Play Store [here](https://play.google.com/store/apps/details?id=com.jonathandpotter.upctracker.
+This is the front end for my UPC tracking web app. It will call the API on my back end to store UPCs in a Mongo Atlas database. I will use this to track which UPCs I have already reported, to where I reported them, and the status of the reported UPCs. The back-end repo is [here](https://github.com/JonathanDPotter/upc-tracker), and this web app is hosted on Vercel [here](https://upc-tracker-efxn5f8q7-jonathandpotter.vercel.app/). The android app is available on the Play Store [here](https://play.google.com/store/apps/details?id=com.jonathandpotter.upctracker).
 
 ---
 
