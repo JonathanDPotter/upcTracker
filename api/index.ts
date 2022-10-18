@@ -18,11 +18,10 @@ const getAllGroups = async (user: string) => {
 
 const createGroup = async (token: string, group: IgroupUpload) => {
   try {
-    console.log(group);
     const response = await axiosInstance.post(`/api/group/`, group, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log(response)
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

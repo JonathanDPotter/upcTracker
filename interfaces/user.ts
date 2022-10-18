@@ -8,5 +8,4 @@ export interface Iuser extends Document {
 export interface InewUser {
   username: string;
   password: string;
-  key?: string;
 }

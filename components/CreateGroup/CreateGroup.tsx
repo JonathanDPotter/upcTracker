@@ -19,7 +19,7 @@ interface IformState {
 
 const CreateGroup: FC<Iprops> = ({ close }) => {
   // get auth from redux
-  const { token } = useAppSelector((state) => state.auth);
+  const { token, _id } = useAppSelector((state) => state.auth);
 
   // local state for form
   const initialState: IformState = { title: "", upcs: "" };
@@ -62,10 +62,11 @@ const CreateGroup: FC<Iprops> = ({ close }) => {
 
     // send to api
     try {
-      if (token) {
-        const response = await api.createGroup(token, {
+      if (token && _id) {
+        await api.createGroup(token, {
           title,
           upcs: noDupes,
+          userId: _id,
         });
       }
     } catch (error: any) {

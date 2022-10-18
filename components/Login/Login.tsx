@@ -50,9 +50,10 @@ const Login = () => {
       const response = await api.login({ username, password });
 
       if (response?.data.token) {
+        console.log(response?.data)
         dispatch(setToken(response?.data.token));
         dispatch(setUser(username));
-        dispatch(setId(response?.data._id));
+        dispatch(setId(response?.data.user._id));
       } else {
         Alert.alert(response?.data.message);
         Platform.OS === "web" && window.alert(response?.data.message);

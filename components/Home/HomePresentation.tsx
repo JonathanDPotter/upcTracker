@@ -13,6 +13,7 @@ interface Iprops {
   setGroupOpen: Dispatch<SetStateAction<Igroup | null>>;
   data: any;
   isLoading: boolean;
+  userId: string | null;
 }
 
 const HomePresentation: FC<Iprops> = ({
@@ -20,6 +21,7 @@ const HomePresentation: FC<Iprops> = ({
   setGroupOpen,
   data,
   isLoading,
+  userId,
 }) => {
   return (
     <View style={[tw`flex-1`]}>
@@ -29,13 +31,17 @@ const HomePresentation: FC<Iprops> = ({
         <FlatList
           data={data}
           keyExtractor={(item) => item._id}
-          renderItem={({ item }) => (
-            <MyButton
-              style={tw`mx-auto w-3/4`}
-              title={item.title}
-              onPress={() => setGroupOpen(item)}
-            />
-          )}
+          renderItem={({ item }) =>
+            item.userId === userId ? (
+              <MyButton
+                style={tw`mx-auto w-3/4`}
+                title={item.title}
+                onPress={() => setGroupOpen(item)}
+              />
+            ) : (
+              <></>
+            )
+          }
         />
       )}
       {groupOpen && (

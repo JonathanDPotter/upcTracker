@@ -49,10 +49,10 @@ const HeaderPres: FC<Iprops> = ({
         <MyButton
           onPress={() => {
             Linking.openURL(
-              "https://drive.google.com/uc?export=download&id=1W3OJ3BTU2PwaRoX13E5zNkZX97Q-h6IO"
+              "https://play.google.com/store/apps/details?id=com.jonathandpotter.upctracker"
             );
           }}
-          title="Get APK"
+          title="Get App"
         />
       ) : null}
       {createOpen ? <CreateGroup close={() => setCreateOpen(false)} /> : null}

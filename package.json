@@ -8,12 +8,15 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "android": {
+    "versionCode": 2
+  },
   "dependencies": {
     "@expo/webpack-config": "^0.17.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
-    "@react-native-async-storage/async-storage": "^1.17.10",
+    "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-clipboard/clipboard": "github:react-native-clipboard/clipboard",
     "@react-navigation/native": "github:react-navigation/native",
     "@reduxjs/toolkit": "^1.8.5",
@@ -36,10 +39,10 @@
     "twrnc": "^3.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/react": "~18.0.14",
+    "@babel/core": "^7.18.6",
+    "@types/react": "~18.0.0",
     "@types/react-native": "~0.69.1",
-    "typescript": "~4.3.5"
+    "typescript": "^4.6.3"
   },
   "private": true
 }
