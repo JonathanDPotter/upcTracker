@@ -1,5 +1,6 @@
 import React, { Dispatch, FC, SetStateAction } from "react";
 import { FlatList, Modal, Platform, TextInput, View } from "react-native";
+
 import tw from "twrnc";
 // components
 import LabelInput from "../shared/LabelInput";
@@ -77,12 +78,6 @@ const GroupPresentation: FC<Iprops> = ({
                     value={title}
                     placeholder="Enter Title"
                   />
-                  <MyButton
-                    title="save"
-                    style={tw`h-[2rem] justify-center px-2`}
-                    textStyle={tw`text-4`}
-                    onPress={() => handleSubmit(submitterType.add)}
-                  />
                 </LabelInput>
                 <LabelInput style={tw`items-start`}>
                   <MyText>UPCs</MyText>
@@ -102,7 +97,7 @@ const GroupPresentation: FC<Iprops> = ({
                   />
                 </LabelInput>
                 <MyButton
-                  title="add"
+                  title="add/save"
                   style={tw`w-3/4`}
                   onPress={() => {
                     handleSubmit(submitterType.add);
