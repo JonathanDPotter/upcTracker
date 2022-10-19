@@ -32,7 +32,7 @@ const HomePresentation: FC<Iprops> = ({
           data={data}
           keyExtractor={(item) => item._id}
           renderItem={({ item }) =>
-            item.userId === userId ? (
+            item.userId && item.userId === userId ? (
               <MyButton
                 style={tw`mx-auto w-3/4`}
                 title={item.title}

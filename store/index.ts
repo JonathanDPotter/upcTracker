@@ -3,7 +3,6 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 // reducers
 import { groupApi } from "./slices/groupSlice";
 import authReducer from "./slices/authSlice";
-import { loadState } from "./localStorage";
 
 export const store = configureStore({
   reducer: {
@@ -12,8 +11,6 @@ export const store = configureStore({
     auth: authReducer,
   },
 
-  // get state from localStorage
-  preloadedState: loadState(),
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware: any) =>

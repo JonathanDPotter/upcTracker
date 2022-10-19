@@ -95,21 +95,25 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
 
   const deleteGroup = async () => {
     if (Platform.OS === "android") {
-      Alert.alert("Delete Group", "Are you sure?", [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel"),
-          style: "cancel",
-        },
-        {
-          text: "OK",
-          onPress: async () => {
-            await api.deleteGroup(id, token ? token : "");
-            refetch();
-            close();
+      Alert.alert(
+        "Delete Group",
+        "Are you sure you want to delete this group?",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel"),
+            style: "cancel",
           },
-        },
-      ]);
+          {
+            text: "OK",
+            onPress: async () => {
+              await api.deleteGroup(id, token ? token : "");
+              refetch();
+              close();
+            },
+          },
+        ]
+      );
     } else {
       if (window.confirm("Are you sure you want to delete this group?")) {
         await api.deleteGroup(id, token ? token : "");

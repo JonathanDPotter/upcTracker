@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import tw from "twrnc";
 // utils
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
