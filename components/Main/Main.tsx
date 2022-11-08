@@ -24,7 +24,7 @@ const Main = () => {
 
   useEffect(() => {
     api.validate(token).then((result) => {
-      if (result?.status !== 200 || result?.data.message === "Unauthorized") {
+      if (result?.status !== 200) {
         logOut();
       }
     });
