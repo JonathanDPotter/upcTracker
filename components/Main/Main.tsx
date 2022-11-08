@@ -24,12 +24,12 @@ const Main = () => {
 
   useEffect(() => {
     api.validate(token).then((result) => {
-      if (result?.status !== 200) {
+      if (result?.status !== 200 || result?.data.message === "Unauthorized") {
         logOut();
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, []);
 
   return (
     <View style={tw`flex-1`}>
