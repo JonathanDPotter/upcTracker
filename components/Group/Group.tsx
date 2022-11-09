@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Alert, Platform } from "react-native";
-import Clipboard from "@react-native-clipboard/clipboard";
+import Clipboard  from "expo-clipboard";
 // components
 import GroupPresentation from "./GroupPresentation";
 // utils
@@ -94,7 +94,7 @@ const Group: FC<Iprops> = ({ id, savedTitle, savedUpcs, close }) => {
   };
 
   const deleteGroup = async () => {
-    if (Platform.OS === "android") {
+    if (Platform.OS !== "web") {
       Alert.alert(
         "Delete Group",
         "Are you sure you want to delete this group?",
