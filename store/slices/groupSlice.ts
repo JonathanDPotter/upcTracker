@@ -3,12 +3,16 @@ import config from "../../config";
 
 export const groupApi = createApi({
   reducerPath: "groupApi",
+
   baseQuery: fetchBaseQuery({
     baseUrl: config.baseURL,
   }),
+
   endpoints: (builder) => ({
-    getAllGroups: builder.query({ query: () => "api/group/" }),
+    getGroups: builder.query({
+      query: (_id: string) => `api/group/user/${_id}`,
+    }),
   }),
 });
 
-export const { useGetAllGroupsQuery } = groupApi;
+export const { useGetGroupsQuery } = groupApi;

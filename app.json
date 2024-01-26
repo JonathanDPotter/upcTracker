@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "upcTracker",
-    "owner": "jonathandpotter",
+    "name": "upc-tracker",
     "slug": "upc-tracker",
-    "version": "1.0.1",
+    "scheme": "upc-tracker",
+    "version": "5.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,28 +12,20 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.jonathandpotter.upctracker",
-      "versionCode": 3
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     },
-    "extra": {
-      "eas": {
-        "projectId": "d5f09f08-2f09-4d8c-80c3-d8c64d858e67"
-      }
-    }
+    "plugins": ["expo-router"]
   }
 }
