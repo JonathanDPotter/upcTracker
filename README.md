@@ -13,3 +13,6 @@ This app is written in TypeScript using React Native. Global state is handled wi
 ## Functionality
 
 When a user first visits the site, if they are not logged in they are redirected to the login page. They can register on that page if they are not already registered, otherwise they can use their credentials to log in. Once logged in the user is redirected to the home page where they can see all of the UPC groups that they have created and create new ones. By clicking on a group name, they can open it up for editing. Groups can also be deleted entirely from the edit menu.
+
+
+![Todos Home Screen]([https://res.cloudinary.com/skarsnik/image/upload/v1706354811/todos_b8rn0n.png])
