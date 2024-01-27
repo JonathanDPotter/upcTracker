@@ -17,15 +17,26 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 5,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jonathandpotter.upctracker"
     },
     "web": {
       "favicon": "./assets/favicon.png",
+      "output": "single",
       "bundler": "metro"
     },
-    "plugins": ["expo-router"]
+    "plugins": ["expo-router"],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d5f09f08-2f09-4d8c-80c3-d8c64d858e67"
+      }
+    }
   }
 }
