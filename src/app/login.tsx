@@ -109,7 +109,7 @@ const Login = () => {
           </LabelInput>
         )}
         <Button
-          title="submit"
+          title="Submit"
           onPress={handleSubmit}
           style={styles.submitButton}
         />

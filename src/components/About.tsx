@@ -28,7 +28,7 @@ const About: FC<Props> = ({ close }) => {
             </P>
           </View>
           <Button
-            title="view privacy policy"
+            title="View Privacy Policy"
             onPress={() =>
               Linking.openURL(
                 "https://www.freeprivacypolicy.com/live/a92f926d-be2a-4b5a-b5ac-68db653294d2"
@@ -37,7 +37,7 @@ const About: FC<Props> = ({ close }) => {
           />
           <Button
             style={{ marginTop: 24, marginBottom: 24 }}
-            title="close"
+            title="Close"
             onPress={close}
           />
         </Card>

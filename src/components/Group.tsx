@@ -28,7 +28,7 @@ type FormState = {
   upcs: string;
 };
 
-enum submitterType {
+enum SubmitterType {
   add = "add",
   remove = "remove",
 }
@@ -61,7 +61,7 @@ const Group: FC<Props> = ({ id, savedTitle, savedUpcs, close }) => {
     });
   };
 
-  const handleSubmit = async (submitter: submitterType) => {
+  const handleSubmit = async (submitter: SubmitterType) => {
     // converts the string from the upcs textarea to an array of numbers to send to the api
     const upcsToNumberArray: number[] = [];
 
@@ -72,9 +72,9 @@ const Group: FC<Props> = ({ id, savedTitle, savedUpcs, close }) => {
 
     let newArray: number[] = [...savedUpcs];
 
-    if (submitter === submitterType.add) {
+    if (submitter === SubmitterType.add) {
       upcsToNumberArray.forEach((upc) => newArray.push(upc));
-    } else if (submitter === submitterType.remove) {
+    } else if (submitter === SubmitterType.remove) {
       upcsToNumberArray.forEach((upc) => {
         newArray = newArray.filter((savedUpc) => savedUpc !== upc);
       });
@@ -204,17 +204,17 @@ const Group: FC<Props> = ({ id, savedTitle, savedUpcs, close }) => {
                   />
                 </LabelInput>
                 <Button
-                  title="add/save"
+                  title="Add"
                   style={{ width: "75%" }}
                   onPress={() => {
-                    handleSubmit(submitterType.add);
+                    handleSubmit(SubmitterType.add);
                   }}
                 />
                 <Button
-                  title="remove"
+                  title="Remove"
                   style={{ width: "75%" }}
                   onPress={() => {
-                    handleSubmit(submitterType.remove);
+                    handleSubmit(SubmitterType.remove);
                   }}
                 />
               </Form>

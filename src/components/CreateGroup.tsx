@@ -121,7 +121,7 @@ const CreateGroup: FC<Props> = ({ close }) => {
             </LabelInput>
 
             <Button
-              title="save"
+              title="Save"
               style={{ width: "30%" }}
               onPress={handleSubmit}
             />

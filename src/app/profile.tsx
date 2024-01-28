@@ -56,7 +56,7 @@ const Profile: FC = () => {
 
       <Button
         style={{ marginTop: 24, marginBottom: 24 }}
-        title="home"
+        title="Home"
         onPress={() => router.push("/")}
       />
     </View>
