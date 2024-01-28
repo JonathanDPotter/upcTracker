@@ -12,12 +12,13 @@
     "versionCode": 5
   },
   "dependencies": {
-    "@expo-google-fonts/amatic-sc": "^0.2.3",
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/poppins": "^0.2.3",
+    "@expo/vector-icons": "^13.0.0",
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.5",
     "expo": "~49.0.15",
+    "expo-asset": "~8.10.1",
     "expo-barcode-scanner": "~12.5.3",
     "expo-clipboard": "~4.3.1",
     "expo-constants": "~14.4.2",
@@ -35,8 +36,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "13.9.0",
     "react-native-web": "~0.19.6",
-    "react-redux": "^9.0.4",
-    "@expo/vector-icons": "^13.0.0"
+    "react-redux": "^9.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

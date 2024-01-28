@@ -1182,11 +1182,6 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
-"@expo-google-fonts/amatic-sc@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.npmjs.org/@expo-google-fonts/amatic-sc/-/amatic-sc-0.2.3.tgz"
-  integrity sha512-6fGot7aV2IhTijktewelFscSKyA//2w3unhWbpEO/C3Stc0jNM4VsOGV8l5gTf79nwQ6kEKEzRybcRukRmH1vQ==
-
 "@expo-google-fonts/inter@^0.2.3":
   version "0.2.3"
   resolved "https://registry.npmjs.org/@expo-google-fonts/inter/-/inter-0.2.3.tgz"
