@@ -6,7 +6,7 @@ This is the front end for my UPC tracking web app. It will call the API on my ba
 
 ## Technologies Used
 
-This app is written in TypeScript using React Native. Global state is handled with redux, and authentication is handled on the back end with jsonwebtoken. It is styled with tailwind css.
+This app is written in TypeScript using React Native. Global state is handled with redux, and authentication is handled on the back-end with jsonwebtoken.
 
 ---
 
